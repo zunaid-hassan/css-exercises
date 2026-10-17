@@ -16,7 +16,7 @@
 }
 
 .header {
-  background-color: #393f4d;
+  background-color: #006157;
 }
 
 .nav ul,
@@ -26,7 +26,7 @@
 }
 
 .sidebar {
-  background-color: #C50208;
+  background-color: #005b94;
 }
 
 .sidebar .photo {
@@ -37,7 +37,6 @@
   border-radius: 10px;
 }
 
-
 .sidebar .side-content {
   background-color: white;
   color: black;
@@ -46,7 +45,7 @@
 }
 
 .nav {
-  background-color: #C50208;
+  background-color: #642cde;
 }
 
 .nav ul li {
@@ -54,7 +53,7 @@
 }
 
 .article {
-  background-color: #bccbde;
+  background-color: #7e1dc3;
 }
 
 .article p {
@@ -65,7 +64,7 @@
 }
 
 .article .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
   text-align: center;
 }
@@ -83,9 +82,86 @@
 
 .footer {
   background-color: #393f4d;
+  border-radius: 0;
 }
 
 .footer p {
   font-size: 13px;
   font-weight: normal;
+}
+
+/* SOLTUION */
+
+.nav,
+.sidebar,
+.article {
+  border-radius: 10px;
+}
+
+.container {
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    "header header"
+    "sidebar nav"
+    "sidebar article"
+    "footer footer";
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-area: header;
+}
+
+.logo {
+  justify-self: start;
+}
+
+.menu {
+  display: grid;
+  align-items: center;
+}
+
+.menu ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: grid;
+  gap: 50px;
+}
+
+.sidebar div {
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.article {
+  grid-area: article;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  border-radius: 5px;
+  height: 200px;
+}
+
+.footer {
+  grid-area: footer;
 }
